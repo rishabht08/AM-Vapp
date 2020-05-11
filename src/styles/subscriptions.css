@@ -110,12 +110,15 @@
 @media screen and (max-width: 480px) {
 
   .userBar{
-    width:99%;
+    width:100%;
     margin-left: 0;
+    font-size: 12px;
+    border-radius: 0px;
   }
 
   .userDetailSub{
     margin-left:1rem
+
   }
 
   .userSubscribers{
@@ -131,10 +134,10 @@
   }
 
   .modal-90w .modal-content{
-    left:4%;
+    
     height: 40rem;
     overflow-y: scroll;
-    border-radius: 3rem;
+    border-radius: 20px;
   }
 }
 

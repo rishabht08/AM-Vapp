@@ -197,7 +197,7 @@
   .MuiFormControl-fullWidth {
     width: 100%;
     position: relative;
-    left: -80%;
+    left: -100%;
 }
   .app-logo{
     left:0

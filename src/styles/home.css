@@ -94,7 +94,7 @@
     }
   }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 360px) {
     .video-grid {
         display: grid;
         grid-gap: 10px;
@@ -108,6 +108,19 @@
 
       .video-list {
         height:300px;
-        width:400px;
+        width:300px;
+        position: relative;
+       
+    
+    }
+    .videoBookmark{
+        margin-left: 50%;
+    }
+    .video-content{
+        width: 300px;
+    }
+
+    .showPlay{
+        width:300px;
     }
   }
