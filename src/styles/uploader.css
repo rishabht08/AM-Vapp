@@ -1,0 +1,257 @@
+/* body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    
+  } */
+
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.prog {
+  margin-top: 15px;
+}
+.slct {
+  margin-bottom: 15px;
+}
+
+label {
+  overflow: hidden;
+}
+.slct label {
+  font-size: 20px;
+}
+.files-upld {
+  font-size: 20px;
+}
+.alert {
+  margin-top: 1rem;
+}
+.inpt-title {
+  margin-top: 1rem;
+  width: 50%;
+}
+
+.uploader {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 2rem;
+  border: 1px solid #ccc;
+  border-radius: 30px 0 30px 0;
+  padding: 5% 20%;
+  /* background: blueviolet; */
+  /* background: #43C6AC; */
+  background: -webkit-linear-gradient(to right, #191654, #43c6ac);
+  /* background: linear-gradient(to right, #191654, #43C6AC); */
+  background: #41295a;
+  background: -webkit-linear-gradient(to right, #2f0743, #41295a);
+  background: linear-gradient(to right, #2f0743, #41295a);
+  color: white;
+  text-align: center;
+}
+
+.uploader h1 {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 50px;
+}
+
+.uploader label {
+  margin-top: 0.5rem;
+}
+.uploaderVidFile {
+  margin: 2rem 2rem;
+  border: 1px solid #ccc;
+  border-radius: 0 30px 0 30px;
+  padding: 5% 20%;
+  /* background: blueviolet; */
+  /* background: #43C6AC; */
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: white;
+  text-align: center;
+}
+
+.uploaderVidFile .files-upld {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 30px;
+}
+
+.slct .input-group {
+  border-radius: 5px;
+  border: 1px solid greenyellow;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 15px;
+  height: 45px;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.capture video {
+  max-width: 50%;
+
+  /* height: 20%; */
+}
+.capture canvas {
+  max-width: 50%;
+  margin-left: 1rem;
+
+  /* height: 20%; */
+}
+
+.progress-bar {
+  width: 50%;
+}
+.capture {
+  display: flex;
+  justify-content: space-between;
+}
+
+.captureButton {
+  text-align: center;
+}
+
+.captureButton button {
+  width: 60%;
+  border-radius: 10px;
+}
+
+.vidPicSubmit {
+  text-align: center;
+}
+
+.vidPicSubmit button {
+  width: 80%;
+  border-radius: 10px;
+}
+
+.videoUploading {
+  display: flex;
+  flex-direction: column;
+  padding: 10% 20%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin: 2rem 2rem;
+  color: white;
+  background: #373B44;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.progress-bar{
+  height: 3rem;
+}
+
+.capture-column {
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  padding: 5% 5%;
+  margin: 1rem 1rem;
+  border-radius: 10px;
+  background-color: grey;
+}
+
+h3 {
+  font-family: "Permanent Marker", cursive;
+  font-size: 72px;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  font-family: "Trade Winds", cursive;
+  font-size: 40px;
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  text-align: center;
+}
+
+.btn-dark {
+  background: #642b73; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #c6426e,
+    #642b73
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #c6426e,
+    #642b73
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.btn-dark:hover {
+  background-image: linear-gradient(
+    to right top,
+    #210537,
+    #3e0c61,
+    #5f118d,
+    #8314bb,
+    #ab12eb
+  );
+}
+
+.btn-warning {
+  background: #30e8bf; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ff8235,
+    #30e8bf
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff8235, #30e8bf);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.btn-warning:hover {
+  background: #41295a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2f0743,
+    #41295a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2f0743, #41295a);
+  color: white; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.main-body {
+  margin: 3rem;
+  padding: 3rem;
+  height: 100%;
+  border-radius: 10px;
+}

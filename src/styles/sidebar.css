@@ -1,0 +1,182 @@
+.sidebarElems p {
+  margin: 1rem 1rem;
+  padding-left: 1rem;
+}
+
+.sidebar-span {
+  position: relative;
+  left: 0;
+  top: 10%;
+  height: 3rem;
+  width: 5rem;
+  cursor: pointer;
+  color: white;
+  margin-left: 0.5rem;
+  /* padding-top: 0.5rem; */
+}
+
+.header-top {
+ 
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  background-color: #373a3c;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.header-top .header-video {
+  position: relative;
+  top: 10%;
+  left: 15%;
+  color: white;
+  cursor: pointer;
+}
+
+.search-icon {
+  position: relative;
+  top: 20%;
+  left: 6%;
+  color: white;
+  cursor: pointer;
+}
+.MuiInputBase-input{
+  color:white !important;
+  background-color: black !important;
+  border-radius: 10px !important;
+  padding-left: 1rem !important ;
+}
+
+.MuiFormControl-marginNormal {
+   margin-top: 8px !important  ; 
+  
+  /* margin-bottom: 8px; */
+}
+
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot {
+  padding-right: 0px !important;
+}
+
+/* .header-top input {
+  position: relative;
+  left: 5%;
+  top: 10%;
+  width: 30%;
+  height: 2rem;
+  color: white;
+  background: rgb(0, 0, 0, 0.7);
+  border-radius: 50px;
+  border: none;
+  padding-left: 10px;
+} */
+
+.app-logo{
+  position: relative;
+  left:5%;
+}
+
+.app-logo img{
+  width: 30%;
+  height: 90%;
+  cursor: pointer;
+}
+
+.sideBar-main {
+  position: absolute;
+  z-index: 3;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+}
+
+.header-image {
+  position: relative;
+  left: 44%;
+  top: 10%;
+
+}
+
+.header-image img {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+
+  cursor: pointer;
+}
+
+.header-login {
+  position: relative;
+
+  height: 2rem;
+
+  left: 42.5%;
+  top: 10%;
+  cursor: pointer;
+}
+
+.sidebar-para {
+  display: flex;
+  cursor: pointer;
+  height: 3rem;
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.sidebar-para:hover {
+  background: rgb(146, 146, 146);
+}
+
+.sidebar-para-1 {
+  margin-top: 2rem;
+}
+
+.rounded-letter {
+  border-radius: 50%;
+  background-color: wheat;
+  height: 2rem;
+  width: 2rem;
+  margin-right: 2rem;
+  margin-left: 1rem;
+  text-align: center;
+  color: black;
+  margin-bottom: 1rem;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: cursive;
+}
+
+@media screen and (max-width: 1000px) {
+  .header-image {
+    left: 45%;
+  }
+  .header-login {
+    left: 43%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header-image {
+    left: 40%;
+  }
+  .header-login {
+    left: 38%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-image {
+    left: 25%;
+  }
+  .header-login {
+    left: 23%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-image {
+    left: 25%;
+  }
+  .header-login {
+    left: 23%;
+  }
+}
