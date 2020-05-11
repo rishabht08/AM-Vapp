@@ -126,6 +126,16 @@
   background: rgb(146, 146, 146);
 }
 
+.animeListSide{
+  text-decoration: none;
+  color:white
+}
+
+.sidebarElems a{
+  text-decoration: none;
+  color: white;
+}
+
 .sidebar-para-1 {
   margin-top: 2rem;
 }
@@ -174,9 +184,27 @@
 
 @media screen and (max-width: 480px) {
   .header-image {
-    left: 25%;
+    left: -5%;
   }
   .header-login {
-    left: 23%;
+    left: -2%;
   }
+
+  .header-top .header-video{
+    left: -16%;
+  }
+
+  .MuiFormControl-fullWidth {
+    width: 100%;
+    position: relative;
+    left: -80%;
+}
+  .app-logo{
+    left:0
+  }
+
+
+  
+
+
 }

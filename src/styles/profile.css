@@ -15,6 +15,7 @@
   padding: 2rem;
 }
 
+
 .userVideos {
   height: 100%;
 
@@ -64,6 +65,15 @@
   text-align: center;
 }
 
+.animeUploads{
+  font-weight: 700;
+  font-family: cursive;
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 2rem;
+
+}
+
 .changeAvatar {
   position: relative;
   top: -250px;
@@ -103,4 +113,31 @@
 
 .editButtons button{
   margin-left: 1rem;;
+}
+
+@media screen and (max-width: 480px) {
+
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    border-radius: 10px;
+    margin: 1rem 1rem 1rem 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+}
+
+.userImage {
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  cursor: pointer;
+  transition: all .5s;
+  margin-bottom: 1rem;
+}
+
+.userDetails{
+  width: 400px;
+}
 }

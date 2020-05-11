@@ -57,4 +57,12 @@ export const getVideoById = (id) =>{
     }
 }
 
+export const getVideosByAnime = (anime) =>{
+    return dispatch =>{
+        return ApiVideo.getVideosByAnime(anime).then(res=>{
+            return res;
+        })
+    }
+}
+
 

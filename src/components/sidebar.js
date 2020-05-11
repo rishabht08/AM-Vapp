@@ -19,7 +19,8 @@ class ToogleSideBar extends React.Component {
             animePath: [],
             isLoggedIn: false,
             userData: null,
-            test: ["Naruto", "Bleach", "Attack On Titan", "One punch Man", "Your Name"]
+            animeList:[],
+            test:["asasas" , "adassfavvx" , "aafxvxv", "q2e13424"]
         };
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
@@ -49,8 +50,13 @@ class ToogleSideBar extends React.Component {
 
         let storageRef = firebase.storage().ref('/');
         storageRef.listAll().then((res) => {
+            let animeList = res.prefixes.map(elem=>{
+                return elem.location.path
+            })
+            console.log("animelist" , animeList)
             this.setState({
-                animePath: res.prefixes
+                animePath: res.prefixes,
+                animeList
             })
 
 
@@ -100,6 +106,10 @@ class ToogleSideBar extends React.Component {
         this.setState({ sidebarOpen: open });
     }
 
+    goToAnimePage = (anime) =>{
+        this.props.history.replace(`/video/anime/${anime}`)
+    }
+
 
 
     render() {
@@ -117,25 +127,27 @@ class ToogleSideBar extends React.Component {
                     <Autocomplete
                         id="clear-on-escape"
                         clearOnEscape
-                        options={this.state.test}
+                        options={this.state.animeList}
                         getOptionLabel={(option) => option}
-                        style={{ width: "30%"," margin-top": "8px" , "color":"white !important" }}
-                        onChange={(e)=>console.log("fsadjkf" , e.target.value)}
-                   
-                        renderInput={(params) => <TextField {...params}  margin="normal" placeholder="Search Anime"/>}
+                        style={{ width: "30%", " margin-top": "8px", "color": "white !important" }}
+                        onChange={(e,v) => this.goToAnimePage(v)}
+
+                        renderInput={(params) => <TextField {...params} margin="normal" placeholder="Search Anime" />}
                     />
 
-                
 
-
-
-
-     
                     <Link to={this.state.isLoggedIn ? "/upload" : "/login"} className="header-video"><span ><i className="fas fa-video fa-2x"></i></span></Link>
                     {this.state.isLoggedIn ?
-                        <Link to="/profile" className="header-image"> <img src={this.state.userData.avatar ? this.state.userData.avatar : "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg"}  ></img> </Link> : <Link to="/login" className="header-login"><Button variant="info">
+                        <a href="/profile" className="header-image"> <img src={this.state.userData.avatar ? this.state.userData.avatar : "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg"}  ></img> </a> :
+                        //         <Link to="/login" className="header-login"><Button variant="info">
+                        //             Login
+                        //   </Button></Link>
+
+                        <a href="/login" className="header-login"><Button variant="info">
                             Login
-                  </Button></Link>}
+                        </Button></a>
+
+                    }
                 </div>
                 <Sidebar className="sideBar-main"
                     sidebar={<div className="sidebarElems">
@@ -154,10 +166,10 @@ class ToogleSideBar extends React.Component {
                         <h2>Anime</h2>
                         {
                             this.state.animePath.map(item => (
-                                <div className="sidebar-para">
+                                <a href={`/video/anime/${item.location.path}`} className="animeListSide"> <div className="sidebar-para">
                                     <div className="rounded-letter">{item.location.path[0]}</div>
                                     <span>{item.location.path}</span>
-                                </div>
+                                </div> </a>
 
                             ))
                         }

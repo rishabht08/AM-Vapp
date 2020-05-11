@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import * as bookmarkAction from "../../store/actions/videoActions"
 import * as actionGenerator from "../../store/actions/userAuthAction"
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 class VideoGrid extends React.Component {
 
@@ -17,9 +18,11 @@ class VideoGrid extends React.Component {
         this.props.videos.forEach((element, index) => {
             loadIndex[index] = 0;
         })
-        let bookmarkedVideoId = this.props.bookmarked.map(elem => {
+
+        let bookmarkedVideoId = this.props.bookmarked ? this.props.bookmarked.map(elem => {
             return elem.video.id
-        })
+        }) : []
+
         console.log("bookmarkedVideoId", bookmarkedVideoId)
 
         this.setState({
@@ -73,7 +76,14 @@ class VideoGrid extends React.Component {
 
     onBookmark = (index) => {
         if (this.props.userData.name == "") {
-            alert("Login First")
+            swal({
+                title: "No Active Session",
+                text: "Sign In to Bookmark Videos",
+                icon: "warning",
+                button: "Go to Login !",
+              }).then(()=>{
+                window.location = "/login";
+              })
         }
         else {
             if (this.isBookmarked(index)) {
@@ -115,26 +125,26 @@ class VideoGrid extends React.Component {
                         <div className="video-content">
                             {this.state.loadIndex[index] == 0 && <Spinner className="loadSpinner" animation="grow" variant="success" />}
 
-                          
+
                             <img src={video.thumbnail} onLoad={() => this.onImageLoad(index)} style={{ opacity: this.state.loadIndex[index] == 0 ? "0" : "1" }} />
-                        <span><b>{video.title}</b></span>
-                        <span>{video.anime}</span>
+                            <span><b>{video.title}</b></span>
+                            <span>{video.anime}</span>
 
 
 
-                        <div className="author">
-                            <span>{video.users ? video.users.name : video.user.name}</span>
-                            <span><i class="fas fa-eye"></i> {video.views}</span>
-                            <div className="videoBookmark" onClick={() => this.onBookmark(index)}><span><i className={this.isBookmarked(index) ? "fas fa-bookmark fa-lg" : "far fa-bookmark fa-lg"}></i></span></div>
+                            <div className="author">
+                                <span>{video.users ? video.users.name : video.user.name}</span>
+                                <span><i class="fas fa-eye"></i> {video.views}</span>
+                                <div className="videoBookmark" onClick={() => this.onBookmark(index)}><span><i className={this.isBookmarked(index) ? "fas fa-bookmark fa-lg" : "far fa-bookmark fa-lg"}></i></span></div>
+                            </div>
                         </div>
+                        <Link to={`/player/${this.props.videos[index]["video_id"] == undefined ? this.props.videos[index].id : this.props.videos[index]["video_id"]}`} className="linkPlayer">
+                            <div className="showPlay">
+                                <span><i class="far fa-play-circle fa-6x"></i></span>
+                            </div></Link>
                     </div>
-                    <Link to={`/player/${this.props.videos[index]["video_id"] == undefined ? this.props.videos[index].id : this.props.videos[index]["video_id"]}`} className="linkPlayer">
-                    <div className="showPlay">
-                        <span><i class="far fa-play-circle fa-6x"></i></span>
-                    </div></Link>
-                    </div>
-        ))
-    }
+                ))
+                }
 
             </div>
         )

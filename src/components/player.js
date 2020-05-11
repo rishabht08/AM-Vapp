@@ -247,6 +247,10 @@ class Player extends React.Component {
         })
     }
 
+    goToAnimeVideo = (anime)=>{
+        window.location = `/video/anime/${anime}`
+    }
+
 
     render() {
         return (
@@ -285,7 +289,7 @@ class Player extends React.Component {
                     <div className="videoComments">
                         {this.props.userData.name != "" ?
                             <input type="text" className="input-group" placeholder="Place Comment" onChange={(e) => this.onchangeHandler(e)} value={this.state.comment} onKeyDown={(e) => this.onEnterComment(e)} /> :
-                            <p className="commentLogin"><a href="/login" onClick={() => this.setState({ show: true })}>Login</a> to Comment</p>
+                            <p className="commentLogin"><a href="/login" >Login</a> to Comment</p>
                         }
 
 
@@ -316,7 +320,7 @@ class Player extends React.Component {
                         <div className="animeTitle">
                             <span >{this.state.title}</span>
                         </div>
-                        <div className="vidAnime">
+                        <div className="vidAnime" onClick={()=>this.goToAnimeVideo(this.state.anime)}>
                             <span >#{this.state.anime}</span>
                         </div>
 

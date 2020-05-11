@@ -4,6 +4,7 @@ import "../styles/subscriptions.css";
 import { connect } from "react-redux";
 import UserProfile from "./userProfile"
 import * as subscribeAction from "../store/actions/subscribeAction"
+import swal from 'sweetalert'
 
 class Subscriptions extends React.Component {
 
@@ -54,35 +55,53 @@ class Subscriptions extends React.Component {
 
     unSubscribe = (index) => {
 
-
-        let subscribedId = this.state.subscribed[index].id;
-        let subscriberId = null;
-
-
-
-        let lenSub = this.state.subscribed[index].others.subscribers.length
-        for (let i = 0; i < lenSub; i++) {
-            if (this.state.subscribed[index].others.subscribers[i]["others_id"] == this.props.userData.id) {
-                subscriberId = this.state.subscribed[index].others.subscribers[i].id
-                
-                break;
+        swal({
+            title: "Are you sure you want to Unsubscribe?",
+            
+            icon: "warning",
+            buttons: ["Cancel", "UnSubscribe"],
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                let subscribedId = this.state.subscribed[index].id;
+                let subscriberId = null;
+        
+        
+        
+                let lenSub = this.state.subscribed[index].others.subscribers.length
+                for (let i = 0; i < lenSub; i++) {
+                    if (this.state.subscribed[index].others.subscribers[i]["others_id"] == this.props.userData.id) {
+                        subscriberId = this.state.subscribed[index].others.subscribers[i].id
+                        
+                        break;
+                    }
+                }
+        
+                const data = {
+                    subscribedId,
+                    subscriberId
+                }
+        
+                //Call Unsubscribe
+                this.props.unSubscribe(data).then(res => {
+                    let arr = this.state.subscribed
+                    arr.splice(index,1)
+                    this.setState({
+                        subscribed:arr
+                    })
+                    swal("Unsubscribed", {
+                        icon: "success",
+                      });
+        
+                })
+             
             }
-        }
+          });
 
-        const data = {
-            subscribedId,
-            subscriberId
-        }
 
-        //Call Unsubscribe
-        this.props.unSubscribe(data).then(res => {
-            let arr = this.state.subscribed
-            arr.splice(index,1)
-            this.setState({
-                subscribed:arr
-            })
 
-        })
+       
     }
 
 

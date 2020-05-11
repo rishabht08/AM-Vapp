@@ -107,4 +107,36 @@
 }
 
 
+@media screen and (max-width: 480px) {
+
+  .userBar{
+    width:99%;
+    margin-left: 0;
+  }
+
+  .userDetailSub{
+    margin-left:1rem
+  }
+
+  .userSubscribers{
+    padding-top: 0.5rem;
+  }
+
+  .userUpload{
+    padding-top: 0.5rem;;
+  }
+
+  .unsubscribeUser{
+    flex-direction: inherit;
+  }
+
+  .modal-90w .modal-content{
+    left:4%;
+    height: 40rem;
+    overflow-y: scroll;
+    border-radius: 3rem;
+  }
+}
+
+
 
