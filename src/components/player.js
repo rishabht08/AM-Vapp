@@ -122,6 +122,7 @@ class Player extends React.Component {
 
 
         })
+        this.scrollUp()
     }
     onchangeHandler = (e) => {
         this.setState({
@@ -249,6 +250,11 @@ class Player extends React.Component {
 
     goToAnimeVideo = (anime) => {
         window.location = `/video/anime/${anime}`
+    }
+
+    scrollUp  = () => {
+        document.body.scrollTo({ top: 0, behavior: "smooth" });
+        document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
     }
 
 
