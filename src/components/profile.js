@@ -300,7 +300,7 @@ class Profile extends React.Component {
 
                                 <input id="name" type="text" value={this.state.name} onChange={(e) => { this.onChangeHandler(e) }} />
                                 <input id="email" type="text" value={this.state.email} onChange={(e) => { this.onChangeHandler(e) }} />
-                                <p>{this.state.userData.email && this.state.userData.email}</p>
+                                <p>{this.state.userData.userName && this.state.userData.userName}</p>
                                 <div className="editButtons">
                                     <button onClick={() => { this.updateProfile() }}>Update</button>
                                     <button onClick={() => { this.setState({ isEdit: false }) }}>Cancel</button>

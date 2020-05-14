@@ -86,7 +86,7 @@ class Player extends React.Component {
         this.props.getVideoById({ id: id }).then(res => {
             console.log("vid resp", res)
             let views = res.data.views + 1;
-            
+
             this.props.updateVideoView({ views }, res.data.id).then(res => {
                 console.log("Updated views", res)
             })
@@ -247,7 +247,7 @@ class Player extends React.Component {
         })
     }
 
-    goToAnimeVideo = (anime)=>{
+    goToAnimeVideo = (anime) => {
         window.location = `/video/anime/${anime}`
     }
 
@@ -320,7 +320,7 @@ class Player extends React.Component {
                         <div className="animeTitle">
                             <span >{this.state.title}</span>
                         </div>
-                        <div className="vidAnime" onClick={()=>this.goToAnimeVideo(this.state.anime)}>
+                        <div className="vidAnime" onClick={() => this.goToAnimeVideo(this.state.anime)}>
                             <span >#{this.state.anime}</span>
                         </div>
 
@@ -333,11 +333,12 @@ class Player extends React.Component {
                             <span className="vidUserName" onClick={() => this.setState({ show: true })}><b>{this.state.videoUser}</b></span>
                             <span style={{ color: "grey" }}>{this.state.subscribersLen} Subscribers</span>
                         </div>
-                        <div className="subscribe">
+                        {this.state.videoUser != this.props.userData.userName && this.props.userData.name!="" &&
+                            <div className="subscribe">
 
-                            <Button variant="outline-warning" onClick={() => { this.onSubscribe() }}>{this.state.subscribed ? "Subscribed" : "Subscribe"}</Button>
+                                <Button variant="outline-warning" onClick={() => { this.onSubscribe() }}>{this.state.subscribed ? "Subscribed" : "Subscribe"}</Button>
 
-                        </div>
+                            </div>}
 
                     </div>
 

@@ -133,7 +133,7 @@ class VideoGrid extends React.Component {
 
 
                             <div className="author">
-                                <span>{video.users ? video.users.name : video.user.name}</span>
+                                <span className="author-span">{video.users ? video.users.name : video.user.name}</span>
                                 <span><i class="fas fa-eye"></i> {video.views}</span>
                                 <div className="videoBookmark" onClick={() => this.onBookmark(index)}><span><i className={this.isBookmarked(index) ? "fas fa-bookmark fa-lg" : "far fa-bookmark fa-lg"}></i></span></div>
                             </div>

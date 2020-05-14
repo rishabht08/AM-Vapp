@@ -204,26 +204,22 @@ figcaption {
 }
 
 .vidAnime {
-  border: 1px solid greenyellow;
   font-size: 18px;
-  width: 17%;
+  width: 30%;
+  height: -moz-fit-content;
   height: fit-content;
   margin-left: 5%;
   text-align: center;
   border-radius: 10px;
   cursor: pointer;
   align-items: center;
+  /* padding-left: 1.5rem; */
+  color: #0578ee;
   /* padding-left:1.5rem; */
 }
 .vidAnime:hover {
-  background-image: linear-gradient(
-    to right top,
-    #370515,
-    #600032,
-    #85005f,
-    #9b009e,
-    #9412eb
-  );
+  text-decoration: underline;
+ 
 }
 
 .vidUserName {
