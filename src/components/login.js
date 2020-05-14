@@ -6,6 +6,7 @@ import Unsplash from 'unsplash-js';
 
 import "../styles/login.css";
 import { Link } from 'react-router-dom'
+import * as videoAction from "../store/actions/videoActions"
 
 import * as actionGenerator from "../store/actions/userAuthAction"
 
@@ -15,8 +16,28 @@ class Login extends React.Component {
         super(props)
         this.state = {
             userName: "",
-            password: ""
+            password: "",
+            randomVideo: "",
+            thumbnail: ""
         }
+    }
+
+    componentDidMount() {
+
+
+        this.props.getAllVideos().then(res => {
+            if (res.data.length != 0) {
+                let arr = res.data;
+
+                let i = Math.floor(Math.random() * arr.length)
+                this.setState({
+                    randomVideo: arr[i].url,
+                    thumbnail: arr[i].thumbnail
+                })
+            }
+
+        })
+
     }
 
     onChanngeHandler = (e) => {
@@ -64,9 +85,12 @@ class Login extends React.Component {
 
         return (
             <div>
-                <video src="https://storage.coverr.co/videos/KP78n9EWQAje1fm6Xr02N6zm7V01xxNRNK?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTg2NDQxMDE4fQ.YDmrRzOPt76msPcPwsgtvcp2Jt8OT14LqWB5OafgIhw"
+                {/* <video src="https://storage.coverr.co/videos/KP78n9EWQAje1fm6Xr02N6zm7V01xxNRNK?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjExNDMyN0NEOTRCMUFCMTFERTE3IiwiaWF0IjoxNTg2NDQxMDE4fQ.YDmrRzOPt76msPcPwsgtvcp2Jt8OT14LqWB5OafgIhw"
+                    className="video-bg" autoPlay loop muted /> */}
+                <video src={this.state.randomVideo}
+                    poster={this.state.thumbnail}
                     className="video-bg" autoPlay loop muted />
-                  
+
 
                 <div className="wrapper">
                     <h1>Log In</h1>
@@ -93,6 +117,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         loginUser: (data) => dispatch(actionGenerator.loginUser(data)),
+        getAllVideos: () => dispatch(videoAction.getAllVideos())
 
     }
 
